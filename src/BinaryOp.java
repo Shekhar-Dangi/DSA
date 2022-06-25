@@ -142,4 +142,16 @@ public class BinaryOp {
         }
         return count == 1;
     }
+    
+    // Finding missing number when array [0, n-1] contain numbers in range [0, n] and one is missing
+    static int missingNumber(int[] nums) {
+        int res = 0;
+        int len = nums.length;
+        for(int i = 0;i < len;i++){
+            res ^= i ^ nums[i];
+        }
+        res ^= len;
+        return res;
+    }
+}
 }

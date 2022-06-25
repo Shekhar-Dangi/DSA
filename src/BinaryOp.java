@@ -97,7 +97,8 @@ public class BinaryOp {
         }
         return Perform.reverse(res);
     }
-
+    
+    // Reverse Bits of a number
     static int reverseBits(int n) {
         /*
         String bin = Integer.toBinaryString(n);
@@ -110,15 +111,23 @@ public class BinaryOp {
         return res;
          */
         int res = 0;
-        int count = 0;
-        while (n > 0 || count < 32) {
+        for(int i = 0;i < 32;i++){
             res <<= 1;
 
             if ((n & 1) == 1) res |= 1;
             n >>>= 1;
-            count++;
         }
         return res;
     }
-
+    
+    // Counting the number of '1' bits number has (also known as the Hamming weight)
+    static int hammingWeight(int n) {
+        int count = 0;
+        for(int i = 0;i < 32;i++){
+            if((n & 1) == 1)
+                count++;
+            n >>>= 1;
+        }
+        return count;
+    }
 }

@@ -169,4 +169,18 @@ public class BinaryOp {
         }
     return res;
     }
+    
+    // Check if a number can be expressed in power of 4
+    static boolean isPowerOfFour(int n) {
+        int count = 0, index = -1;
+        for(int i = 0;i < 32;i++){
+            if((n & 1) == 1)
+            {
+                count ++;
+                index = i;
+            }
+            n >>>= 1;
+        }
+        return (count == 1) && ((index & 1) == 0);
+    }
 }

@@ -98,4 +98,27 @@ public class BinaryOp {
         return Perform.reverse(res);
     }
 
+    static int reverseBits(int n) {
+        /*
+        String bin = Integer.toBinaryString(n);
+        bin = String.format("%32s", bin).replaceAll(" ", "0");
+        int res = 0;
+        for(int i = bin.length() - 1;i >= 0;i--){
+            if(bin.charAt(i) == '1')
+                res += Math.pow(2, i);
+        }
+        return res;
+         */
+        int res = 0;
+        int count = 0;
+        while (n > 0 || count < 32) {
+            res <<= 1;
+
+            if ((n & 1) == 1) res |= 1;
+            n >>>= 1;
+            count++;
+        }
+        return res;
+    }
+
 }

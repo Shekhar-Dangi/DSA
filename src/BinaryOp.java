@@ -130,4 +130,16 @@ public class BinaryOp {
         }
         return count;
     }
+    
+    // Check if a number can be expressed in power of 2
+    static boolean isPowerOfTwo(int n) {
+        int count = 0;
+        while(n > 0){
+            if((n & 1) == 1){
+                count++;
+            }
+            n >>= 1;
+        }
+        return count == 1;
+    }
 }

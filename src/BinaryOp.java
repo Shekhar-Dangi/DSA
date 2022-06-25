@@ -153,5 +153,20 @@ public class BinaryOp {
         res ^= len;
         return res;
     }
-}
+    
+    // Given an integer n, return an array of number of bits at each index
+    static int[] countBits(int n) {
+        int res[] = new int[n + 1];
+        for(int i = 0;i <= n;i++){
+            int count = 0;
+            int k = i;
+            for(int j = 0;j < 32;j++){ 
+                if((k & 1) == 1)
+                    count++;
+                k >>>= 1;
+            }
+            res[i] = count;
+        }
+    return res;
+    }
 }

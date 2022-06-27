@@ -190,4 +190,17 @@ public class BinaryOp {
             res ^= t.charAt(i);
         return (char) res;
     }
+    
+    // Hamming Distance
+    static int hammingDistance(int x, int y) {
+        int xor = x ^ y;
+        int res = 0;
+        
+        for(int i = 0;i < 31;i++){
+            if((xor & 1) == 1)
+                res++;
+            xor >>= 1;
+        }
+        return res;
+    }
 }

@@ -34,4 +34,23 @@ public class Mathematics {
         int res = (nums[2] + 10 * nums[0]) + (nums[3] + 10 * nums[1]);
         return res;
     }
+    
+    // Number of good pairs
+    static int numIdenticalPairs(int[] nums) {
+        Arrays.sort(nums);
+        int count = 0;
+        for(int i = 0;i < nums.length;i++){
+            boolean pair = true;
+            int k = 1;
+            while(pair){
+                if((i + k < nums.length ) && (nums[i] == nums[i + k])){
+                    k++;
+                    count++;
+                }
+                else
+                    pair = false;
+            }
+        }
+        return count;
+    }
 }

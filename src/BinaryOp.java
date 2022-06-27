@@ -97,7 +97,7 @@ public class BinaryOp {
         }
         return Perform.reverse(res);
     }
-    
+
     // Reverse Bits of a number
     static int reverseBits(int n) {
         /*
@@ -111,7 +111,7 @@ public class BinaryOp {
         return res;
          */
         int res = 0;
-        for(int i = 0;i < 32;i++){
+        for (int i = 0; i < 32; i++) {
             res <<= 1;
 
             if ((n & 1) == 1) res |= 1;
@@ -119,78 +119,75 @@ public class BinaryOp {
         }
         return res;
     }
-    
+
     // Counting the number of '1' bits number has (also known as the Hamming weight)
     static int hammingWeight(int n) {
         int count = 0;
-        for(int i = 0;i < 32;i++){
-            if((n & 1) == 1)
-                count++;
+        for (int i = 0; i < 32; i++) {
+            if ((n & 1) == 1) count++;
             n >>>= 1;
         }
         return count;
     }
-    
+
     // Check if a number can be expressed in power of 2
     static boolean isPowerOfTwo(int n) {
         int count = 0;
-        while(n > 0){
-            if((n & 1) == 1){
+        while (n > 0) {
+            if ((n & 1) == 1) {
                 count++;
             }
             n >>= 1;
         }
         return count == 1;
     }
-    
+
     // Finding missing number when array [0, n-1] contain numbers in range [0, n] and one is missing
     static int missingNumber(int[] nums) {
         int res = 0;
         int len = nums.length;
-        for(int i = 0;i < len;i++){
+        for (int i = 0; i < len; i++) {
             res ^= i ^ nums[i];
         }
         res ^= len;
         return res;
     }
-    
+
     // Given an integer n, return an array of number of bits at each index
     static int[] countBits(int n) {
         int res[] = new int[n + 1];
-        for(int i = 0;i <= n;i++){
+        for (int i = 0; i <= n; i++) {
             int count = 0;
             int k = i;
-            for(int j = 0;j < 32;j++){ 
-                if((k & 1) == 1)
-                    count++;
+            for (int j = 0; j < 32; j++) {
+                if ((k & 1) == 1) count++;
                 k >>>= 1;
             }
             res[i] = count;
         }
-    return res;
+        return res;
     }
-    
+
     // Check if a number can be expressed in power of 4
     static boolean isPowerOfFour(int n) {
         int count = 0, index = -1;
-        for(int i = 0;i < 32;i++){
-            if((n & 1) == 1)
-            {
-                count ++;
+        for (int i = 0; i < 32; i++) {
+            if ((n & 1) == 1) {
+                count++;
                 index = i;
             }
             n >>>= 1;
         }
         return (count == 1) && ((index & 1) == 0);
     }
-    
+
     // Find the extra character
     static char findTheDifference(String s, String t) {
         int res = 0;
-        for(int i = 0;i < s.length();i++)
+        for (int i = 0; i < s.length(); i++)
             res ^= s.charAt(i);
-        for(int i = 0;i < t.length();i++)
+        for (int i = 0; i < t.length(); i++)
             res ^= t.charAt(i);
-        return (char)res;
+        return (char) res;
     }
 }

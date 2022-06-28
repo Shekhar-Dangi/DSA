@@ -5,4 +5,10 @@ public class Perform {
             rev += a.charAt(i);
         return rev;
     }
+
+    public static void swap(char[] chars, int i, int j) {
+        char temp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = temp;
+    }
 }
